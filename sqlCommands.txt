@@ -1,0 +1,82 @@
+INSERT INTO owner (cid, name, surname, phone) VALUES
+(1, 'Tobiasz', 'Puslecki', '507182857'),
+(2, 'Wojciech', 'Sikora', '235583956'),
+(3, 'Jan', 'Rodzen', '505378645'),
+(4, 'Pietrek', 'Kogucik', '601235478')
+;
+
+
+
+
+
+cd /usr/local/mysql/bin
+./mysql -u root -p
+SHELTER
+
+.bBlEl2W2g2%
+
+
+=============================================================================
+
+
+
+
+
+Dodawanie zwierzaka:
+Dodanie cid=max_cid+1 do owner i animal
+Wszystkie pola w animal(cid) wypełnić
+Wszystkie pola w owner(cid) na NULL
+
+
+
+
+
+
+Choroby: //hasDisease <=> musi być nazwa choroby
+USE animals;
+UPDATE animal SET hasDisease='Y' WHERE cid=X;
+UPDATE animal SET diseaseName=# WHERE cid=X;
+
+Zmiana boxNumber:
+USE animals;
+UPDATE animal SET boxNumber=# WHERE cid=X;
+
+
+
+Ilość podopiecznych:
+USE animals;
+SELECT COUNT(hasHome) FROM animal WHERE hasHome='N' AND animalType='D';
+SELECT COUNT(hasHome) FROM animal WHERE hasHome='N' AND animalType='C';
+
+
+
+Adopcja:
+USE animals;
+UPDATE animal SET boxNumber=0 WHERE cid=X;
+UPDATE animal SET hasHome='Y' WHERE cid=X;
+USE owners;
+UPDATE owner SET name=# WHERE cid=X;
+UPDATE owner SET surname=## WHERE cid=X;
+UPDATE owner SET phone=### WHERE cid=X;
+
+
+
+INSERT INTO owner (cid, name, surname, phone) VALUES
+(@max_cid, 'Janusz', 'Nowak', '121212121');
+
+
+Uzyskanie max_cid:
+USE owners; SET @max_cid=10; SET @max_cid = (SELECT COUNT(*) FROM owner)+1; SELECT @max_cid;
+
+
+
+DELETE FROM animal WHERE cid=13;
+
+
+
+..................................
+
+
+
+./mysqldump -uroot -p owners owner > /Users/tobing/Desktop/owners.sql
+./mysqldump -uroot -p animals animal > /Users/tobing/Desktop/animals.sql

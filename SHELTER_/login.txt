@@ -1,0 +1,9 @@
+root
+root
+
+
+Login: root
+Pass: root
+
+Login do bazy danych : root 
+Hasło do bazy danych : SHELTER
